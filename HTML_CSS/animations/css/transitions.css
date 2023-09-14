@@ -1,0 +1,45 @@
+.change-color {
+  width: 200px;
+  height: 100px;
+  background-color: greenyellow;
+  transition: background-color 3s, width 1s;
+}
+
+.change-color:hover {
+  width: 400px;
+  background-color: red;
+}
+
+.magician {
+  width: 300px;
+  height: 300px;
+  background-color: black;
+  opacity: 1;
+  transition: opacity 4s;
+}
+
+.magician:hover {
+  opacity: 0;
+}
+
+nav ul {
+  display: flex;
+  margin: 0;
+  list-style: none;
+  gap: 20px;
+}
+
+nav ul li {
+  /* border-bottom: 2px solid rgba(0, 0, 0, 0); */
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.2s;
+  /* transition: border 0.2s; */
+  border-radius: 5px;
+  padding: 15px;
+}
+
+nav ul li:hover {
+  /* border-bottom: 2px solid rgba(0, 0, 0, 1); */
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
