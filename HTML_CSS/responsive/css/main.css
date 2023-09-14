@@ -1,0 +1,50 @@
+header {
+  border: 1px solid pink;
+  background-color: red;
+}
+
+.wrapper {
+  width: 90%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+div {
+  border: 1px dashed red;
+}
+
+nav {
+  border: 2px dotted green;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    background-color: aqua;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  header {
+    background-color: blueviolet;
+  }
+}
