@@ -1,0 +1,27 @@
+@use "mixins";
+
+.container {
+  @include mixins.box(bisque, 100%);
+  // background-color: bisque;
+
+  &__text {
+    font-size: 1.2rem;
+
+    &--important {
+      font-style: italic;
+      font-size: 1.5rem;
+    }
+  }
+
+  &--small {
+    @include mixins.box(aqua);
+  }
+
+  @include mixins.tablet {
+    background-color: dimgray;
+  }
+
+  @include mixins.desktop {
+    background-color: indigo;
+  }
+}

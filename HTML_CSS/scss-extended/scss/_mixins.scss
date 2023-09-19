@@ -1,0 +1,19 @@
+@use "variables" as v;
+
+@mixin box($color, $size: 200px) {
+  width: $size;
+  height: calc($size / 2);
+  background-color: $color;
+}
+
+@mixin tablet {
+  @media screen and (min-width: v.$tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: v.$desktop) {
+    @content;
+  }
+}

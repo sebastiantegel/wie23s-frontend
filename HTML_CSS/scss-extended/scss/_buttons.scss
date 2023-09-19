@@ -1,0 +1,20 @@
+@use "variables" as v;
+@use "mixins";
+
+.btn {
+  border: 1px solid grey;
+  border-radius: 8px;
+  margin: v.$margin;
+  padding: v.$padding;
+  background-color: aquamarine;
+
+  @include mixins.tablet {
+    background-color: greenyellow;
+  }
+}
+
+.btn--big {
+  @extend .btn;
+  padding: calc(2 * v.$padding);
+  font-size: 1.5em;
+}
