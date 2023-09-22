@@ -1,5 +1,9 @@
 # Frontendutveckling - WIE23S
 
-## HTML_basics
+## HTML_CSS
 
-Innehåller små vägledande taggar och hur de kan användas. Koncept såsom nästling finns med här.
+Alla demon som går igenom koncepten för html och css som vi har arbetat med. grid, flex, responsitivitet m.m.
+
+## JS
+
+Innehåller alla demon som innehåller javascript.
