@@ -1,0 +1,30 @@
+body {
+  display: flex;
+}
+
+.animals {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .animal {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 1em;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.selected {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.animal-detail {
+  width: 40%;
+  border: 1px solid black;
+  border-radius: 10px;
+}

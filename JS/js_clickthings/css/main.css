@@ -1,0 +1,29 @@
+body {
+  display: flex;
+}
+
+.animals {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.animals .animal {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 1em;
+}
+.animals .animal:hover {
+  cursor: pointer;
+}
+.animals .animal.selected {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.animal-detail {
+  width: 40%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=main.css.map */
