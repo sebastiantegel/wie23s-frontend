@@ -65,21 +65,25 @@ function getDetailsForMovie(imdbID) {
     .then((response) => response.json())
     .then((movie) => {
       console.log(movie);
-      document.getElementById("modal-body").innerHTML = "";
-
-      document.getElementById("exampleModalLabel").innerHTML = movie.Title;
-
-      const description = document.createElement("p");
-      description.innerHTML = movie.Plot;
-
-      const director = document.createElement("p");
-      director.innerHTML = movie.Director;
-
-      const actors = document.createElement("p");
-      actors.innerHTML = movie.Actors;
-
-      document.getElementById("modal-body").appendChild(description);
-      document.getElementById("modal-body").appendChild(director);
-      document.getElementById("modal-body").appendChild(actors);
+      createHtmlForMovie(movie);
     });
+}
+
+function createHtmlForMovie(movie) {
+  document.getElementById("modal-body").innerHTML = "";
+
+  document.getElementById("exampleModalLabel").innerHTML = movie.Title;
+
+  const description = document.createElement("p");
+  description.innerHTML = movie.Plot;
+
+  const director = document.createElement("p");
+  director.innerHTML = movie.Director;
+
+  const actors = document.createElement("p");
+  actors.innerHTML = movie.Actors;
+
+  document.getElementById("modal-body").appendChild(description);
+  document.getElementById("modal-body").appendChild(director);
+  document.getElementById("modal-body").appendChild(actors);
 }
