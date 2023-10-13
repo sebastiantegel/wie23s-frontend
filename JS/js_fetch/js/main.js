@@ -26,15 +26,31 @@
 
 // console.log("Finished");
 
-fetch("http://omdbapi.com/?apikey=416ed51a&s=harry")
-  .then((response) => response.json())
-  .then((movies) => {
-    console.log(movies.Search);
-    createHtml(movies.Search);
-  });
+// document.getElementById("search")
+
+document.querySelector("#search").addEventListener("submit", getMovies);
+
+function getMovies(e) {
+  e.preventDefault();
+  const movieTitleToSearchFor = document.querySelector("#userInput").value;
+
+  if (movieTitleToSearchFor === "") {
+    return;
+  }
+
+  fetch("http://omdbapi.com/?apikey=416ed51a&s=" + movieTitleToSearchFor)
+    .then((response) => response.json())
+    .then((movies) => {
+      console.log(movies.Search);
+      createHtml(movies.Search);
+      document.querySelector("#userInput").value = "";
+    });
+}
 
 function createHtml(movies) {
   const moviesContainer = document.getElementById("movies");
+  moviesContainer.innerHTML = "";
+
   for (let i = 0; i < movies.length; i++) {
     const movieContainer = document.createElement("div");
     const imgContainer = document.createElement("div");

@@ -13,6 +13,8 @@ const searchMovies = async (e) => {
   const movies = await getMovies(movieTitleToSearchFor);
 
   createHtml(movies);
+
+  document.querySelector("#userInput").value = "";
 };
 
 const createHtml = (movies) => {
