@@ -12,6 +12,8 @@ const searchMovies = async (e) => {
 
   const movies = await getMovies(movieTitleToSearchFor);
 
+  localStorage.setItem("movies", JSON.stringify(movies));
+
   createHtml(movies);
 
   document.querySelector("#userInput").value = "";
@@ -21,22 +23,22 @@ const createHtml = (movies) => {
   const moviesContainer = document.getElementById("movies");
   moviesContainer.innerHTML = "";
 
-  for (let i = 0; i < movies.length; i++) {
+  movies.forEach((movie) => {
     const movieContainer = document.createElement("div");
     const imgContainer = document.createElement("div");
     const img = document.createElement("img");
     const title = document.createElement("h3");
 
-    title.innerHTML = movies[i].Title;
-    img.src = movies[i].Poster;
+    title.innerHTML = movie.name;
+    img.src = movie.imageUrl;
     movieContainer.className = "movie";
     movieContainer.setAttribute("data-bs-toggle", "modal");
     movieContainer.setAttribute("data-bs-target", "#exampleModal");
     imgContainer.className = "img-container";
 
     movieContainer.addEventListener("click", async () => {
-      const movie = await getMovieById(movies[i].imdbID);
-      createHtmlForMovie(movie);
+      const movieDetails = await getMovieById(movie.imdbID);
+      createHtmlForMovie(movieDetails);
     });
 
     imgContainer.appendChild(img);
@@ -44,7 +46,7 @@ const createHtml = (movies) => {
     movieContainer.appendChild(imgContainer);
 
     moviesContainer.appendChild(movieContainer);
-  }
+  });
 };
 
 function createHtmlForMovie(movie) {
@@ -67,3 +69,8 @@ function createHtmlForMovie(movie) {
 }
 
 document.querySelector("#search").addEventListener("submit", searchMovies);
+
+const moviesFromLocalStorage = JSON.parse(
+  localStorage.getItem("movies") || "[]"
+);
+createHtml(moviesFromLocalStorage);
