@@ -27,7 +27,16 @@ const getMovies = async () => {
     const title: HTMLHeadingElement = document.createElement("h3");
     title.innerHTML = movie.Title;
 
+    const imageContainer = document.createElement("div");
+    const img = document.createElement("img");
+
+    img.src = movie.Poster;
+    img.alt = movie.Title;
+
+    imageContainer.appendChild(img);
+
     appDiv?.appendChild(title);
+    appDiv?.appendChild(imageContainer);
   });
 };
 
