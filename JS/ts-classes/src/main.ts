@@ -31,4 +31,4 @@ const getMovies = async () => {
   });
 };
 
-getMovies();
+document.getElementById("getMovies")?.addEventListener("click", getMovies);
