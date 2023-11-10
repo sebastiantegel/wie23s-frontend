@@ -3,6 +3,7 @@ import "./../scss/style.scss";
 
 interface IOmdbResponse {
   Search: IMovie[];
+  Response: string;
 }
 
 interface IMovie {
@@ -34,23 +35,23 @@ document.getElementById("searchForm")?.addEventListener("submit", async (e) => {
     "http://omdbapi.com/?apikey=416ed51a&s=" + searchText
   );
 
-  if (response.data.Search.length === 0) {
+  if (response.data.Response === "False") {
     const noMoviesFound = document.createElement("p");
     noMoviesFound.innerHTML = "No movies found";
 
     document.getElementById("search-result")?.appendChild(noMoviesFound);
+  } else {
+    response.data.Search.forEach((movie) => {
+      const movieContainer = document.createElement("div");
+      const title = document.createElement("h3");
+      const image = document.createElement("img");
+
+      title.innerHTML = movie.Title;
+      image.src = movie.Poster;
+
+      movieContainer.appendChild(title);
+      movieContainer.appendChild(image);
+      searchResult?.appendChild(movieContainer);
+    });
   }
-
-  response.data.Search.forEach((movie) => {
-    const movieContainer = document.createElement("div");
-    const title = document.createElement("h3");
-    const image = document.createElement("img");
-
-    title.innerHTML = movie.Title;
-    image.src = movie.Poster;
-
-    movieContainer.appendChild(title);
-    movieContainer.appendChild(image);
-    searchResult?.appendChild(movieContainer);
-  });
 });

@@ -45,7 +45,8 @@ describe("movie search app", () => {
 
   it("should show no results if no movies", () => {
     cy.intercept("http://omdbapi.com/*", {
-      Search: [],
+      Error: "No movies found!",
+      Response: "False",
     });
 
     cy.get("input#searchText").type("harry");
@@ -54,7 +55,7 @@ describe("movie search app", () => {
     cy.get("#search-result > p").contains("No movies found");
   });
 
-  it("should not search if search text is less than 2 char", () => {
+  it("should not search if search text is less than 3 char", () => {
     cy.get("button#search").click();
 
     cy.get("#search-result > p").contains(
